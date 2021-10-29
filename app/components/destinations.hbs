@@ -1,34 +1,45 @@
-<section class='destinations-chooser grid-container'>
-  <img
-    class='destination-img'
-    src='./assets/destination/image-moon.png'
-    alt=''
-  />
-  <div class='destination-text'>
-    <ul class='underline-indicators flex text-accent destination-nav-tab'>
-      <li class='active'>Moon</li>
-      <li>Mars</li>
-      <li>Europa</li>
-      <li>Titan</li>
+<section class='grid-container destination-chooser'>
+  <div class='destination-image'>
+    <img src='./assets/destination/image-moon.png' alt='M' />
+  </div>
+
+  <div class='grid destination-info'>
+    <ul class='fs-200 flex uppercase underline-indicators destination-nav'>
+      {{!-- <li><a href='#'>{{@model}}</a></li>
+      <li><a href='#'>Mars</a></li>
+      <li><a href='#'>Europa</a></li>
+      <li><a href='#'>Titan</a></li> --}}
+      {{#each @model as |destination|}}
+        <li>
+          {{! <LinkTo> }}
+          {{destination.name}}
+          {{! </LinkTo> }}
+        </li>
+      {{/each}}
     </ul>
-    <h1 class='ff-serif fs-900 text-white uppercase'>Moon</h1>
-    <p>See our planet as you’ve never seen it before. A perfect relaxing trip
-      away to help regain perspective and come back refreshed. While you’re
-      there, take in some history by visiting the Luna 2 and Apollo 11 landing
-      sites.</p>
 
-    <div class='destination-info grid'>
-      <div class='destination-distance'>
+    {{! <h1 class='ff-serif fs-800 destination-title uppercase'>
+      MOON
+    </h1>
+    <p class='fs-400 destination-description'>See our planet as you’ve never
+      seen it before. A perfect relaxing trip away to help regain perspective
+      and come back refreshed. While you’re there, take in some history by
+      visiting the Luna 2 and Apollo 11 landing sites.</p>
 
-        <h2 class='fs-400 ff-sans-cond uppercase text-accent'>Avg. Distance</h2>
-        <p class='fs-700 ff-serif uppercase'>384,400 KM</p>
+    <div class='grid destination-meta'>
+      <div class='flex destination-distance'>
+        <h4 class='fs-200 ff-sans-cond text-accent uppercase'>Avg. Distance</h4>
+        <p class='fs-500 ff-serif uppercase'>384,400 Km</p>
       </div>
-
-      <div class='destination-travel-duration'>
-        <h2 class='fs-400 ff-sans-cond uppercase text-accent'>Est. travel time</h2>
-        <p class='fs-700 ff-serif uppercase'>3 Days</p>
+      <div class='flex destination-time'>
+        <h4 class='fs-200 ff-sans-cond text-accent uppercase'>Est. Travel Time</h4>
+        <p class='fs-500 ff-serif uppercase'>3 Days</p>
       </div>
-    </div>
+    </div> }}
+
+    {{#each @model as |destination|}}
+      <div>{{destination.description}}</div>
+    {{/each}}
   </div>
 
 </section>

@@ -8,4 +8,10 @@ export default class DestinationRoute extends Route {
   deactivate() {
     document.body.classList.remove('destination');
   }
+
+  async model() {
+    let response = await fetch('./api/data.json');
+    let { destinations } = await response.json();
+    return destinations;
+  }
 }
