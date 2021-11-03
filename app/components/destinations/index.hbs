@@ -1,0 +1,41 @@
+<section class='grid-container destination-chooser'>
+  <div class='destination-image'>
+    <img src={{this.showDestination.images.png}} alt='M' />
+  </div>
+
+  <div class='flex destination-info'>
+    <ul class='fs-200 flex uppercase underline-indicators destination-nav'>
+      {{#each @model as |destination|}}
+        <li>
+          {{! <LinkTo> }}
+          <a
+            href='#'
+            {{on 'click' (fn this.changeDestination destination.name)}}
+          >{{destination.name}}</a>
+          {{! </LinkTo> }}
+        </li>
+      {{/each}}
+    </ul>
+
+    <h1 class='ff-serif fs-800 destination-title uppercase'>
+      {{this.showDestination.name}}
+    </h1>
+    <p
+      class='fs-400 destination-description'
+    >{{this.showDestination.description}}</p>
+
+    <div class='grid destination-meta'>
+      <div class='flex destination-distance'>
+        <h4 class='fs-200 ff-sans-cond text-accent uppercase'>Avg. Distance</h4>
+        <p
+          class='fs-500 ff-serif uppercase'
+        >{{this.showDestination.distance}}</p>
+      </div>
+      <div class='flex destination-time'>
+        <h4 class='fs-200 ff-sans-cond text-accent uppercase'>Est. Travel Time</h4>
+        <p class='fs-500 ff-serif uppercase'>{{this.showDestination.travel}}</p>
+      </div>
+    </div>
+  </div>
+
+</section>

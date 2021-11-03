@@ -511,6 +511,10 @@ select {
   @media (min-width: 35rem) {
     text-align: left;
   }
+
+  @media (min-width: 45rem) {
+    margin-bottom: 0;
+  }
 }
 
 .page-header > span {
@@ -562,7 +566,14 @@ body {
   margin: 0 auto;
 }
 
+.destination-chooser {
+  margin-bottom: 1.5rem;
+}
+
 .destination-info {
+  // justify-content: center;
+  // grid-template-rows: repeat(3, auto);
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -570,7 +581,6 @@ body {
   list-style: none;
   justify-content: space-around;
   padding: 0;
-  margin-block: 1.5rem 1rem;
 
   & > * {
     color: hsl(var(--clr-accent));
@@ -604,4 +614,38 @@ body {
 .destination-distance > h4,
 .destination-time > h4 {
   max-width: 100ch;
+}
+
+/* CREW */
+.crew {
+  background-image: url(./crew/background-crew-mobile.jpg);
+
+  @media (min-width: 35rem) {
+    background-image: url(./crew/background-crew-tablet.jpg);
+  }
+
+  @media (min-width: 45rem) {
+    background-image: url(./crew/background-crew-desktop.jpg);
+  }
+}
+
+.crew-member-img {
+  justify-content: center;
+  border-bottom: 1px solid hsl(var(--clr-white) / 0.25);
+}
+
+.crew-member-img img {
+  max-width: 55%;
+}
+
+.crew-member-info {
+  margin-block: 1.5rem;
+  text-align: center;
+  flex-direction: column;
+  --gap: 0.3rem;
+}
+
+.crew-role {
+  color: hsl(var(--clr-white) / 0.5);
+  margin-top: 1rem;
 }
