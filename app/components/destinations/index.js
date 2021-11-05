@@ -4,9 +4,11 @@ import { action } from '@ember/object';
 
 export default class DestinationsComponent extends Component {
   @tracked destinationName = 'moon';
+  @tracked isActive = false;
 
-  @action changeDestination(destinationName) {
+  @action changeDestination(destinationName, index) {
     this.destinationName = destinationName;
+    console.log(index);
   }
   get showDestination() {
     let results = this.args.model.filter(

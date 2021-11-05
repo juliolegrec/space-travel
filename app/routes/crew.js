@@ -12,7 +12,6 @@ export default class CrewRoute extends Route {
   async model() {
     let response = await fetch('./api/data.json');
     let { crew } = await response.json();
-    console.log(crew);
     return crew;
   }
 }

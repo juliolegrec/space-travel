@@ -1,0 +1,36 @@
+<div
+  class='ff-serif numbered-indicators flex'
+  role='tablist'
+  aria-label='technology list'
+>
+  {{#each @model as |technology|}}
+    <button
+      role='tab'
+      tabindex='0'
+      type='button'
+      {{on 'click' (fn this.changeTechnology technology.id)}}
+    >
+      <span>{{technology.id}}</span>
+    </button>
+  {{/each}}
+</div>
+
+<article
+  class='technology-details flow'
+  id='commander-tab'
+  role='tabpanel'
+  tabindex='0'
+>
+  <header class='flow flow--space-small'>
+    <h2 class='fs-600 ff-sans-cond text-accent uppercase'>The Terminology...</h2>
+    <p class='fs-700 ff-serif uppercase'>{{this.showTechnology.name}}</p>
+  </header>
+  <p>{{this.showTechnology.description}}</p>
+</article>
+<picture>
+  <source
+    media='(min-width: 720px)'
+    srcset={{this.showTechnology.images.portrait}}
+  />
+  <img src={{this.showTechnology.images.landscape}} />
+</picture>

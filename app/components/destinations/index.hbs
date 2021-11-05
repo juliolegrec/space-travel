@@ -1,41 +1,39 @@
-<section class='grid-container destination-chooser'>
-  <div class='destination-image'>
-    <img src={{this.showDestination.images.png}} alt='M' />
-  </div>
+<picture id='moon-image'>
+  <source srcset={{this.showDestination.images.webp}} type='image/webp' />
+  <img src={{this.showDestination.images.png}} alt='the moon' />
+</picture>
 
-  <div class='flex destination-info'>
-    <ul class='fs-200 flex uppercase underline-indicators destination-nav'>
-      {{#each @model as |destination|}}
-        <li>
-          {{! <LinkTo> }}
-          <a
-            href='#'
-            {{on 'click' (fn this.changeDestination destination.name)}}
-          >{{destination.name}}</a>
-          {{! </LinkTo> }}
-        </li>
-      {{/each}}
-    </ul>
+<div
+  class='tab-list underline-indicators flex'
+  role='tablist'
+  aria-label='destination list'
+>
+  {{#each @model as |destination index|}}
+    <button
+      aria-selected='true'
+      role='tab'
+      class='uppercase ff-sans-cond text-accent letter-spacing-2'
+      tabindex={{index}}
+      type='button'
+      {{on 'click' (fn this.changeDestination destination.name index)}}
+    >{{destination.name}}</button>
+  {{/each}}
+</div>
 
-    <h1 class='ff-serif fs-800 destination-title uppercase'>
-      {{this.showDestination.name}}
-    </h1>
-    <p
-      class='fs-400 destination-description'
-    >{{this.showDestination.description}}</p>
+<p>{{this.destinationName}}</p>
+<article class='destination-info flow' tabindex='0' role='tabpanel'>
+  <h2 class='fs-800 uppercase ff-serif'>{{this.showDestination.name}}</h2>
 
-    <div class='grid destination-meta'>
-      <div class='flex destination-distance'>
-        <h4 class='fs-200 ff-sans-cond text-accent uppercase'>Avg. Distance</h4>
-        <p
-          class='fs-500 ff-serif uppercase'
-        >{{this.showDestination.distance}}</p>
-      </div>
-      <div class='flex destination-time'>
-        <h4 class='fs-200 ff-sans-cond text-accent uppercase'>Est. Travel Time</h4>
-        <p class='fs-500 ff-serif uppercase'>{{this.showDestination.travel}}</p>
-      </div>
+  <p>{{this.showDestination.description}}</p>
+
+  <div class='destination-meta flex'>
+    <div>
+      <h3 class='text-accent fs-200 uppercase'>Avg. distance</h3>
+      <p class='ff-serif uppercase'>{{this.showDestination.distance}}</p>
+    </div>
+    <div>
+      <h3 class='text-accent fs-200 uppercase'>Est. travel time</h3>
+      <p class='ff-serif uppercase'>{{this.showDestination.travel}}</p>
     </div>
   </div>
-
-</section>
+</article>
