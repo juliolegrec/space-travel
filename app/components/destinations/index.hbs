@@ -10,7 +10,6 @@
 >
   {{#each @model as |destination index|}}
     <button
-      aria-selected='true'
       role='tab'
       class='uppercase ff-sans-cond text-accent letter-spacing-2'
       tabindex={{index}}
@@ -19,8 +18,6 @@
     >{{destination.name}}</button>
   {{/each}}
 </div>
-
-<p>{{this.destinationName}}</p>
 <article class='destination-info flow' tabindex='0' role='tabpanel'>
   <h2 class='fs-800 uppercase ff-serif'>{{this.showDestination.name}}</h2>
 
