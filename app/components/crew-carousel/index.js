@@ -3,16 +3,23 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class CrewComponent extends Component {
-  @tracked crewMemberRole = 'Commander';
+  @tracked crewMember = this.args.model[0];
 
-  @action changeCrewMember(crewMemberRole) {
-    this.crewMemberRole = crewMemberRole;
+  @action changeCrewMember(index, element) {
+    this.crewMember = this.args.model[index];
+
+    let crewNav = element.srcElement.parentElement.children;
+    for (let i = 0; i < crewNav.length; i++) {
+      crewNav[i].ariaSelected = false;
+    }
+    element.srcElement.ariaSelected = true;
   }
-  get showCrewMember() {
-    let results = this.args.model.filter(
-      (element) => element.role === this.crewMemberRole
-    );
-    let crewMember = results[0];
-    return crewMember;
+
+  setActive(element) {
+    let tabIndex = parseInt(element.attributes.tabIndex.value);
+
+    if (tabIndex === 0) {
+      element.ariaSelected = true;
+    }
   }
 }

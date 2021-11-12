@@ -3,12 +3,14 @@
   role='tablist'
   aria-label='technology list'
 >
-  {{#each @model as |technology|}}
+  {{#each @model as |technology index|}}
     <button
+      {{did-insert this.setActive}}
+      aria-selected='false'
       role='tab'
-      tabindex='0'
+      tabindex={{index}}
       type='button'
-      {{on 'click' (fn this.changeTechnology technology.id)}}
+      {{on 'click' (fn this.changeTechnology index)}}
     >
       <span>{{technology.id}}</span>
     </button>
@@ -23,14 +25,14 @@
 >
   <header class='flow flow--space-small'>
     <h2 class='fs-600 ff-sans-cond text-accent uppercase'>The Terminology...</h2>
-    <p class='fs-700 ff-serif uppercase'>{{this.showTechnology.name}}</p>
+    <p class='fs-700 ff-serif uppercase'>{{this.chosenTech.name}}</p>
   </header>
-  <p>{{this.showTechnology.description}}</p>
+  <p>{{this.chosenTech.description}}</p>
 </article>
 <picture>
   <source
     media='(min-width: 720px)'
-    srcset={{this.showTechnology.images.portrait}}
+    srcset={{this.chosenTech.images.portrait}}
   />
-  <img src={{this.showTechnology.images.landscape}} />
+  <img src={{this.chosenTech.images.landscape}} />
 </picture>

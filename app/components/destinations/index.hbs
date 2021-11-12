@@ -1,6 +1,6 @@
 <picture id='moon-image'>
-  <source srcset={{this.showDestination.images.webp}} type='image/webp' />
-  <img src={{this.showDestination.images.png}} alt='the moon' />
+  <source srcset={{this.chosenDestination.images.webp}} type='image/webp' />
+  <img src={{this.chosenDestination.images.png}} alt='the moon' />
 </picture>
 
 <div
@@ -10,27 +10,29 @@
 >
   {{#each @model as |destination index|}}
     <button
+      {{did-insert this.setActive}}
+      aria-selected='false'
       role='tab'
-      class='uppercase ff-sans-cond text-accent letter-spacing-2'
+      class='uppercase ff-sans-cond text-accent letter-spacing-2 destination-nav'
       tabindex={{index}}
       type='button'
-      {{on 'click' (fn this.changeDestination destination.name index)}}
+      {{on 'click' (fn this.changeDestination index)}}
     >{{destination.name}}</button>
   {{/each}}
 </div>
 <article class='destination-info flow' tabindex='0' role='tabpanel'>
-  <h2 class='fs-800 uppercase ff-serif'>{{this.showDestination.name}}</h2>
+  <h2 class='fs-800 uppercase ff-serif'>{{this.chosenDestination.name}}</h2>
 
-  <p>{{this.showDestination.description}}</p>
+  <p>{{this.chosenDestination.description}}</p>
 
   <div class='destination-meta flex'>
     <div>
       <h3 class='text-accent fs-200 uppercase'>Avg. distance</h3>
-      <p class='ff-serif uppercase'>{{this.showDestination.distance}}</p>
+      <p class='ff-serif uppercase'>{{this.chosenDestination.distance}}</p>
     </div>
     <div>
       <h3 class='text-accent fs-200 uppercase'>Est. travel time</h3>
-      <p class='ff-serif uppercase'>{{this.showDestination.travel}}</p>
+      <p class='ff-serif uppercase'>{{this.chosenDestination.travel}}</p>
     </div>
   </div>
 </article>

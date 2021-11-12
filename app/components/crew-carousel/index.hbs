@@ -1,8 +1,12 @@
 <div class='dot-indicators flex' role='tablist' aria-label='crew member list'>
-  {{#each @model as |crew|}}
+  {{#each @model as |crew index|}}
     <button
+      {{did-insert this.setActive}}
+      aria-selected='false'
       role='tab'
-      tabindex='0' type="button" {{on 'click' (fn this.changeCrewMember crew.role)}}
+      tabindex={{index}}
+      type='button'
+      {{on 'click' (fn this.changeCrewMember index)}}
     >
       <span class='sr-only'>{{crew.role}}</span>
     </button>
@@ -16,12 +20,12 @@
   tabindex='0'
 >
   <header class='flow flow--space-small'>
-    <h2 class='fs-600 ff-serif uppercase'>{{this.showCrewMember.role}}</h2>
-    <p class='fs-700 ff-serif uppercase'>{{this.showCrewMember.name}}</p>
+    <h2 class='fs-600 ff-serif uppercase'>{{this.crewMember.role}}</h2>
+    <p class='fs-700 ff-serif uppercase'>{{this.crewMember.name}}</p>
   </header>
-  <p>{{this.showCrewMember.bio}}</p>
+  <p>{{this.crewMember.bio}}</p>
 </article>
 <picture id='commander-image'>
-  <source srcset={{this.showCrewMember.images.webp}} type='image/webp' />
-  <img src={{this.showCrewMember.images.png}} alt='Douglas Hurley' />
+  <source srcset={{this.crewMember.images.webp}} type='image/webp' />
+  <img src={{this.crewMember.images.png}} alt='Douglas Hurley' />
 </picture>
