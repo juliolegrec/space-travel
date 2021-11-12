@@ -12,7 +12,6 @@ export default class TechnologyRoute extends Route {
   async model() {
     let response = await fetch('./api/data.json');
     let { technology } = await response.json();
-    console.log(technology);
     return technology;
   }
 }
