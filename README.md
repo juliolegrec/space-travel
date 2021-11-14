@@ -1,56 +1,44 @@
-# space-travel
+# Frontend Mentor - Space tourism website solution
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Prerequisites
+## Table of contents
 
-You will need the following things properly installed on your computer.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+## Overview
 
-## Installation
+### The challenge
 
-* `git clone <repository-url>` this repository
-* `cd space-travel`
-* `npm install`
+Users should be able to:
 
-## Running / Development
+- View the optimal layout for each of the website's pages depending on their device's screen size
+- See hover states for all interactive elements on the page
+- View each page and be able to toggle between the tabs to see new information
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+### Screenshot
 
-### Code Generators
+![](/Users/juliolegrec/Documents/GITHUB/space-travel/Desktop - 1.png)
 
-Make use of the many generators for code, try `ember help generate` for more details
+### Links
 
-### Running Tests
+- Solution URL: [https://github.com/juliolegrec/space-travel](https://github.com/juliolegrec/space-travel)
+- Live Site URL: [https://suspicious-stonebraker-7cf50c.netlify.app/](https://your-live-site-url.com)
 
-* `ember test`
-* `ember test --server`
+## My process
 
-### Linting
+### Built with
 
-* `npm run lint`
-* `npm run lint:fix`
+- Ember JS
 
-### Building
+## Author
 
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+- Website - [juliolegrec.com](https://www.juliolegrec.com)
+- Frontend Mentor - [@juliolegrec](https://www.frontendmentor.io/profile/juliolegrec)
+- Twitter - [@juliolegrec](https://twitter.com/JulioLegrec)
